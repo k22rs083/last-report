@@ -32,7 +32,7 @@
             showResults(results); 
         }) 
     }
-    function searchlevel(){
+    function searchLevel(){
         let level = parseInt($("#level").val()); 
         let TestDataClass = ncmb.DataStore(db); 
         TestDataClass 
@@ -43,9 +43,9 @@
         })
     }
     function searchLevelLT() {
-        let level = parseInt($("#level").val());
         let TestDataClass = ncmb.DataStore(db);
-         TestDataClass
+        let level = parseInt($("#level").val());         
+        TestDataClass
         .lessThan("level", level) 
         .fetchAll() 
         .then(function(results) { 
@@ -63,30 +63,32 @@
             }) 
         }
         function searchdefence1(){
-        let level = parseInt($("#defence").val()); 
-        let TestDataClass = ncmb.DataStore(db); 
-        TestDataClass 
-        .equalTo("level", level) 
+            let defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+        .lessThan("defence", defence)
         .fetchAll() 
         .then(function(results) { 
             showResults(results); 
-        })
+            })
+
     }
     function searchdefence2() {
-        let level = parseInt($("#defence").val());
+        let defence = parseInt($("#defence").val());
         let TestDataClass = ncmb.DataStore(db);
          TestDataClass
-        .lessThan("level", level) 
+        .equalTo("defence", defence) 
         .fetchAll() 
         .then(function(results) { 
             showResults(results); 
             })
         }
         function searchdefence3() {
-        let level = parseInt($("#defence").val(), 10); 
-        let TestDataClass = ncmb.DataStore(db); 
+        let defence = parseInt($("#defence").val(), 10); 
+        let TestDataClass = ncmb.DataStore(db);
+
         TestDataClass 
-        .greaterThan("level", level) 
+        .greaterThan("defence", defence) 
         .fetchAll() 
         .then(function(results) { 
             showResults(results); 
@@ -124,17 +126,21 @@
     <label for="level">level:</label>
     <input id="level" type="number" placeholder="monster level">
   </div>
+   <div>
+    <label for="defence">defence:</label>
+    <input id="defence" type="number" placeholder="monster defence">
+  </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
     <br>
-    <button class="btn" onclick="searchlevelLT()">level&lt</button>
-    <button class="btn" onclick="searchlevel()">level</button>
-    <button class="btn" onclick="searchlevelGT()">level &gt</button>
+    <button class="btn" onclick="searchLevelLT()">level &lt</button>
+    <button class="btn" onclick="searchLevel()">level</button>
+    <button class="btn" onclick="searchLevelGT()">level &gt</button>
     <br>
-    <button class="btn" onclick="searchdefence1()">defence(0-999)</button>
-    <button class="btn" onclick="searchdefence2()">defence(1000-1999)</button>
-    <button class="btn" onclick="searchdefence3()">defence(2000-2999)</button>
+    <button class="btn" onclick="searchdefence1()">defence&lt</button>
+    <button class="btn" onclick="searchdefence2()">defence</button>
+    <button class="btn" onclick="searchdefence3()">&ltdefence</button>
 
 
 
