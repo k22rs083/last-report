@@ -62,6 +62,37 @@
             showResults(results); 
             }) 
         }
+        function searchdefence1(){
+        let level = parseInt($("#defence").val()); 
+        let TestDataClass = ncmb.DataStore(db); 
+        TestDataClass 
+        .equalTo("level", level) 
+        .fetchAll() 
+        .then(function(results) { 
+            showResults(results); 
+        })
+    }
+    function searchdefence2() {
+        let level = parseInt($("#defence").val());
+        let TestDataClass = ncmb.DataStore(db);
+         TestDataClass
+        .lessThan("level", level) 
+        .fetchAll() 
+        .then(function(results) { 
+            showResults(results); 
+            })
+        }
+        function searchdefence3() {
+        let level = parseInt($("#defence").val(), 10); 
+        let TestDataClass = ncmb.DataStore(db); 
+        TestDataClass 
+        .greaterThan("level", level) 
+        .fetchAll() 
+        .then(function(results) { 
+            showResults(results); 
+            }) 
+        }
+
 
 
     function showResults(results) {
@@ -101,9 +132,9 @@
     <button class="btn" onclick="searchlevel()">level</button>
     <button class="btn" onclick="searchlevelGT()">level &gt</button>
     <br>
-    <button class="btn" onclick="searchdefenceLT()">defence(0-999)</button>
-    <button class="btn" onclick="searchdefence()">defence(1000-1999)</button>
-    <button class="btn" onclick="searchdefenceGT()">defence(2000-2999)</button>
+    <button class="btn" onclick="searchdefence1()">defence(0-999)</button>
+    <button class="btn" onclick="searchdefence2()">defence(1000-1999)</button>
+    <button class="btn" onclick="searchdefence3()">defence(2000-2999)</button>
 
 
 
