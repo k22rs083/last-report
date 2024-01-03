@@ -95,7 +95,7 @@
             }) 
         }
         function searchattack1(){
-            let defence = parseInt($("#attack").val());
+            let attack = parseInt($("#attack").val());
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
         .lessThan("attack", attack)
@@ -106,7 +106,7 @@
 
     }
     function searchattack2() {
-        let defence = parseInt($("#attack").val());
+        let attack = parseInt($("#attack").val());
         let TestDataClass = ncmb.DataStore(db);
          TestDataClass
         .equalTo("attack", attack) 
@@ -116,7 +116,7 @@
             })
         }
         function searchattack3() {
-        let defence = parseInt($("#attack").val(), 10); 
+        let attack = parseInt($("#attack").val(), 10); 
         let TestDataClass = ncmb.DataStore(db);
 
         TestDataClass 
@@ -161,6 +161,10 @@
    <div>
     <label for="defence">defence:</label>
     <input id="defence" type="number" placeholder="monster defence">
+  </div>
+  <div>
+    <label for="attack">attack:</label>
+    <input id="attack" type="number" placeholder="monster attack">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
